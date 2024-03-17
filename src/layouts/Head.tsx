@@ -3,13 +3,18 @@ import SearchButton from "../components/inputs/SearchButton";
 import { IoMdMic, IoMdMenu } from "react-icons/io";
 import { MdOutlineVideoCameraFront } from "react-icons/md";
 import { CiBellOn } from "react-icons/ci";
+import { useCallback } from "react";
 
-const Head = () => {
+const Head = ({ setOpenSidebar }:any) => {
+
+    const handleClickMenu = useCallback(() => {
+        setOpenSidebar((prev: boolean) => !prev)
+    },[])
     return (
         <>
             <div className="flex flex-row justify-between items-center gap-10 h-[56px] px-[16px]">
                 <div className="flex flex-row gap-3 items-center">
-                    <button className="rounded-full hover:bg-gray-100 cursor-pointer p-1">
+                    <button className="rounded-full hover:bg-gray-100 cursor-pointer p-1" onClick={handleClickMenu}>
                         <IoMdMenu size={30} />
                     </button>
                     <img src={Logo} width={90} className="cursor-pointer" height={20} />
